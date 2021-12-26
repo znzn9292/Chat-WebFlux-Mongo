@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      host: znzn.synology.me
+      port: 27017
+      database: chatdb
