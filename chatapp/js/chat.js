@@ -40,7 +40,6 @@ function initYourMessage(data) {
 // 메세지 전송 서버 통신
 async function sendMessage() {
     let msgInput = document.querySelector("#chat-outgoing-msg");
-
     let chat = {
         sender: username,
         roomNumber: roomNumber,

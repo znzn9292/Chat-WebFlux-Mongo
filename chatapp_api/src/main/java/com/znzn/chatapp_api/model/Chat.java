@@ -1,4 +1,4 @@
-package com.znzn.chatapp_api;
+package com.znzn.chatapp_api.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
