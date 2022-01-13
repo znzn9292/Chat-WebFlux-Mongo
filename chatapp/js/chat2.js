@@ -8,9 +8,6 @@ function getParameterByName(name) {
 let username = prompt("아이디를 입력하세요.");
 let roomNumber = getParameterByName("roomNumber");
 
-
-
-
 // SSE 연결
 const eventSource = new EventSource(`http://localhost:8081/room/${roomNumber}`);
 
@@ -29,9 +26,9 @@ eventSource.onmessage = (event) => {
 
 // 보낸 메세지 생성
 function initMyMessage(data) {
-    let chatBox = document.querySelector("#chat-box");
+    let chatBox = document.querySelector("#main-chat");
     let chatSendBox = document.createElement("div");
-    chatSendBox.className = "send_box";
+    chatSendBox.className = "me-chat";
 
     chatSendBox.innerHTML = getSendMsgBox(data);
     chatBox.append(chatSendBox);
@@ -39,9 +36,9 @@ function initMyMessage(data) {
 
 // 받은 메세지 생성
 function initYourMessage(data) {
-    let chatBox = document.querySelector("#chat-box");
+    let chatBox = document.querySelector("#main-chat");
     let chatReceiveBox = document.createElement("div");
-    chatReceiveBox.className = "reveive_box";
+    chatReceiveBox.className = "friend-chat";
 
     chatReceiveBox.innerHTML = getReceiveMsgBox(data);
     chatBox.append(chatReceiveBox);
@@ -70,26 +67,31 @@ async function sendMessage() {
 // 보내는 메세지 박스 생성
 function getSendMsgBox(data) {
     let dateFormat = dateConverter(data.createdAt);
-    return `<div class="send_msg">
-                <p>${data.msg}</p>
-                <span class="time_date"> ${dateFormat} / ${data.sender}</span>
-            </div>`;
+    return `<div class="me-chat-col">
+                <span class="balloon">${data.msg}</span>
+            </div>
+            <time>${dateFormat}</time>`;
 }
 
 // 받은 메세지 박스 생성
 function getReceiveMsgBox(data) {
     let dateFormat = dateConverter(data.createdAt);
-    return `<div class="received_msg">
-                <div class="received_withd_msg">
-                    <p>${data.msg}</p>
-                    <span class="time_date"> ${dateFormat} / ${data.sender}</span>
-                </div>
-            </div>`;
+    return `<img class="profile-img" src="./img/default.png" alt="프사">
+            <div class="friend-chat-col">
+                <span class="profile-name">${data.sender}</span>
+                <span class="balloon">${data.msg}</span>
+            </div>
+            <time>${dateFormat}</time>`;
 }
 
 function dateConverter(localDateTime) {
     let date = new Date(localDateTime);
-    return date.getHours() + ":" + date.getMinutes() + " | " + date.getMonth() + "월 " + date.getDate() + "일";
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let amPm = hours < 12 ? "오전" : "오후";
+
+
+    return amPm + " " + hours + ":" + minutes;
 }
 
 // 전송 버튼 메세지 전송

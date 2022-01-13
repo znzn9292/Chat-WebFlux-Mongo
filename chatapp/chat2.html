@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko" data-dark="false">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kakao Talk Chat Room</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="description" content="Kakao Talk Clone Chat Page">
+    <meta name="robotos" content="noindex, nofollow">
+    <link rel="stylesheet" href="CSS/chat-room.css">
+    <link rel="stylesheet" href="CSS/general.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+
+<body>
+    <div id="chat-body">
+        <!-- 설정바(최소화, 닫기 버튼 등) -->
+        <div class="setting_bar">
+            <i class="icon-window-minimize" alt="최소화버튼" title="최소화"></i>
+            <i class="icon-window-maximize" alt="최대화버튼" title="최대화"></i>
+            <i class="icon-cancel" alt="닫기버튼" title="닫기"></i>
+        </div>
+        <!-- 알림, 메뉴 기능 -->
+        <div class="main-menu">
+            <i class="icon-bell" title="알림"></i>
+            <i class="icon-ellipsis" title="메뉴"></i>
+        </div>
+        <!-- 프로필 사진, 프로필명 -->
+        <header>
+            <img class="profile-img" src="./img/default.png" alt="쀼프로필사진">
+            <div class="profile-col">
+                <span class="profile-name">쀼사원</span>
+                <div class="sub-menu">
+                    <i class="icon-box" title="채팅방 서랍"></i>
+                    <i class="icon-search" title="검색"></i>
+                </div>
+            </div>
+        </header>
+        <main>
+            <!-- 채팅 내용 시작 -->
+            <div class="chat-content">
+                <!-- 메시지 시작 날짜 -->
+                <div class="date-line">
+                    <time datetime="2021-03-29">2022년 1월 12일 수요일</time>
+                </div>
+                <!-- 채팅 내용 -->
+                <div class="main-chat" id="main-chat">
+                    <!-- <div class="friend-chat">
+                        <img class="profile-img" src="./img/default.png" alt="쀼프로필사진">
+                        <div class="friend-chat-col">
+                            <span class="profile-name">쀼사원</span>
+                            <span class="balloon">대리님, 혹시 7시50분에 시간 괜찮으세요?</span>
+                            <span class="balloon">저와 커피 한잔 해주실 수 있으실까요? ㅜㅜ</span>
+                        </div>
+                        <time datetime="07:30:00+09:00">오전 7:30</time>
+                    </div>
+
+                    <div class="me-chat">
+                        <div class="me-chat-col">
+                            <span class="balloon">ㅇㅋ</span>
+                        </div>
+                        <time datetime="07:32:00+09:00">오전 7:32</time>
+                    </div> -->
+
+                </div>
+            </div>
+            <div class="type_msg">
+                <div class="input_msg_write">
+                    <input id="chat-outgoing-msg" type="text" class="write_msg" placeholder="Type a message" />
+                </div>
+                <button id="chat-outgoing-button" class="msg_send_btn" type="button"><i class="fa fa-paper-plane"
+                        aria-hidden="true"></i></button>
+            </div>
+        </main>
+    </div>
+    <script src="js/chat2.js"></script>
+</body>
+
+</html>
